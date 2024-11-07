@@ -1,0 +1,18 @@
+{
+  "name": "Blogging_APP_Practise",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify"
+  },
+  "dependencies": {
+    "@prisma/extension-accelerate": "^1.2.1",
+    "@types/jsonwebtoken": "^9.0.7",
+    "hono": "^4.6.9",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241022.0",
+    "prisma": "^5.22.0",
+    "wrangler": "^3.83.0"
+  }
+}

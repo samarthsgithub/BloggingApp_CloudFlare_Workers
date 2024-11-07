@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiY2M3Y2E5ZjYtYjA2NS00MDhiLWExY2MtNGFjMTg0ZDExMDlkIiwidGVuYW50X2lkIjoiNDBmMDY3Mzc1ZWQ2ZmMzNDExMGI2NWNiNjBhZGY3MjFhY2NkMzU5MzU4YzUyZjNlZjljNmViNDlkMTBlOWRlZCIsImludGVybmFsX3NlY3JldCI6IjZhOGE4OTFkLTIyNTctNGJiOS04ZGYyLTVjYWRjYzBhMmVkNyJ9.i9S8OVvCHFoC7PrPeveNh6PU-KSUIMRo6lEd5LaEKZA"
+  directUrl = "postgresql://neondb_owner:8doVvCLYA2Fi@ep-autumn-block-a5b0uj6c.us-east-2.aws.neon.tech/neondb?sslmode=require"
+}
+
+
+model User {
+   id       Int       @id @default(autoincrement())
+
+   username String    @unique
+   email    String    @unique
+   password String    
+   blogs    Blog[]
+}
+
+model Blog {
+  id     Int  @id  @default(autoincrement())
+  title  String 
+  blog   String 
+  userId Int 
+  user   User   @relation(fields:[userId],references: [id])
+}
